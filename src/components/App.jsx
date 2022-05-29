@@ -5,11 +5,11 @@ import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
 import Notification from './Notification/Notification';
 
-const types = {
-  GOOD: 'good',
-  NEUTRAL: 'neutral',
-  BAD: 'bad',
-};
+// const types = {
+//   GOOD: 'good',
+//   NEUTRAL: 'neutral',
+//   BAD: 'bad',
+// };
 
 function App() {
   const [good, setGood] = useState(0);
@@ -18,13 +18,13 @@ function App() {
 
   const onLeaveFeedback = value => {
     switch (value) {
-      case types.GOOD:
+      case 'good':
         setGood(prev => prev + 1);
         break;
-      case types.NEUTRAL:
+      case 'neutral':
         setNeutral(prev => prev + 1);
         break;
-      case types.BAD:
+      case 'bad':
         setBad(prev => prev + 1);
         break;
 
@@ -45,7 +45,7 @@ function App() {
     <div className={s.container}>
       <Section title="Please leave feedback">
         <FeedbackOptions
-          options={Object.values(types)}
+          options={Object.keys({ good, neutral, bad })}
           onLeaveFeedback={onLeaveFeedback}
         />
       </Section>
